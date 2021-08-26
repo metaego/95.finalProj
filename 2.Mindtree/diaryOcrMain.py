@@ -2,6 +2,9 @@ from datetime import datetime
 import os
 from konlpy.tag import Hannanum, Kkma, Komoran, Okt
 import re
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
 
 
 # 구글 API 라이브러리 import와 key 설정
@@ -44,7 +47,7 @@ def startMamT():
 
     ##################
     ### loading from result sample
-    ocrResult_final = loadResultSample('./resultSamplr_data12.txt')
+    ocrResult_final = loadResultSample('../1.data/resultSamplr_data11.txt')
     # print(ocrResult_final)
 
     # 0. OCR를 이용해서, 이미지로부터 텍스트를 추출한다( 원하는 결과만 가져온다)
@@ -72,8 +75,8 @@ def startMamT():
     # 한글 text 스펠링 확인 후 str 타입으로 변환
     # print("======== text_before_analysis ======")
     global text_before_analysis
-    # text_before_analysis = " ".join(list(strCheckedspell.words.keys()))
-    text_before_analysis ="형태소분석을위한테스트문장입니다. 과제하기 정말 귀찮네요."
+    text_before_analysis = " ".join(list(strCheckedspell.words.keys()))
+    # text_before_analysis ="형태소분석을위한테스트문장입니다. 과제하기 정말 귀찮네요."
 
     # 3-1. 감성 분석 결과 가져오기 - API >>> 결과 저장 필요
     # 내 요건에 맞는(적합한) 사용 가능 기술 서칭 해보기
@@ -250,12 +253,25 @@ def startMamT():
     return  kkma_nouns, kkma_morphs, kkma_pos, kkma_sentences
 
 def kkmaPreprocess(text, tokenizer):
-    
-    print('===========KKMA POS==========')
-    print(kkma_pos, type(kkma_pos))
+    global kkma_pos_dic
+    kkma_pos_dic = {}
+
+    # print('===========KKMA POS==========')
+    # 형태소에서 키와 값 추출 -> dict 타입으로 변환(key:형태소 태그, value:한글 텍스트)
+    for hantxt, tags in kkma_pos:
+        kkma_pos_dic[tags] = hantxt 
+
+    # 불용어로 추가할 태그 추가
+    tag_add_boollist = ['SF', 'JKO', 'ETD', 'EFN', 'VCP', 'VV', 'XSV', 'ETN', 'JX', 'VXV', 'EPT', 'ECS', 'EPH', 'ETD', 'ECE', ]
+    bool_list = []
+    for bool_tags in tag_add_boollist:
+        bool_list += kkma_pos_dic[bool_tags].split()
+
 
     # 불용어 정의
-    stopwords = ['을', '를', '이', '가', '은', '는', '요', 'ㄴ'] 
+    stopwords = ['ㅂ니다', '네요', '에', '아', '를','은', '과', '거든요', '에게', '있', '분', '아야', '아도', '던', '지만', '았', '한', 'ㄴ', 'ㄹ', '어요', '에서', '부터', '러', '는데', 'ㅂ시다', '어도', '것', '지', '라고요', '도', '고', '가', '으로', '죠', '아요', '다고'] + bool_list
+    print("=====불용어 정의 리스트======")
+    print(stopwords)
 
     txt = re.sub('[^가-힣a-z]', ' ', text)
     token = tokenizer.morphs(txt) # 형태소 추출 토큰
@@ -285,8 +301,16 @@ if __name__ == "__main__":
     print(getTimeStr(), "Finish - Mam Training Recognition")
 
     tokenizer = Kkma()
-    kkmaPreprocess(text_before_analysis, tokenizer)
-
+    
 
 kkma_pre = kkmaPreprocess(text_before_analysis, tokenizer)
 print(kkma_pre)
+kkma_pre_txt= " ".join(kkma_pre)
+
+print("===워드 클라우드 생성")
+wordcloud = WordCloud(font_path='font/NanumGothic.ttf', background_color='white').generate(kkma_pre_txt)
+plt.figure(figsize=(10,10)) #이미지 사이즈 지정
+plt.imshow(wordcloud, interpolation='lanczos') #이미지의 부드럽기 정도
+plt.axis('off') #x y 축 숫자 제거
+plt.show() 
+plt.savefig()
