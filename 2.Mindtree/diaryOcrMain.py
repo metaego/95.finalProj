@@ -6,7 +6,7 @@ import re
 
 # 구글 API 라이브러리 import와 key 설정
 from google.cloud import vision
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './mindtree-323221-a1a17c76f9b6.json'
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../구글키주소입력.json'
 
 
 
@@ -251,6 +251,8 @@ def startMamT():
 
 def kkmaPreprocess(text, tokenizer):
     
+    print('===========KKMA POS==========')
+    print(kkma_pos, type(kkma_pos))
 
     # 불용어 정의
     stopwords = ['을', '를', '이', '가', '은', '는', '요', 'ㄴ'] 
