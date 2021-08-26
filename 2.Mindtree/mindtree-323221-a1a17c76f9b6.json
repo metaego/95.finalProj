@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mindtree-323221",
+  "private_key_id": "a1a17c76f9b670ad9c23ba172e03978fdb1c2d3c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDdqeenOrcLRnd7\n9U9vQMWqtJoPDvZW9P1vlcM2GXQ5HuLbfx81rsEWQeXLr447W9GDJmBwxhlkyNUO\n8MuWHefkiROONqS2rQRTkcnGh/mSqihUdkrPGH3aI1Po76kV9zbbDZ+84XcmEtOi\n045DfvncbY2sMTZS57/EOGkT3Sb0w7gbd54SXJmOF5ih05XVjIYFmcBE8rl8kTzB\n3IKM7yY0SU77pl30FVK+zJ8dSTduc8IRDaxb4L3kjffhfGhfBZkjPriM+oIeZ6CA\nPaDl7yGKiytgT9EaVIskAJ+Cpys9LJL/ZoUdCfTWEOGXXI3gLxCQJxabjg1S0J0X\nyRivJ0ntAgMBAAECggEAJxVzspFQQA0zOSiWUnv9vm0sstYFCm0VGK0z5+CSFRZE\nksY11w3Snt2Mqp7wObglV3YXUBsl1BbzNjiv9O6d+jZPO+aXoVwdZKzSgo5sK3eU\nN9xJsX1Uh3duLqa/Tg+yXOpojXHFw/FS3qVlsrH7VWn9rmxY80JIlk0J/gYi/coG\ntSJ+UEZPBAg4hwTW0lLeTglVeK2/2GQgpSb2G/olmnrrotwWWdsN5ALHtJcg+47U\nBmHyGiSFZwNkrytUQmfG4FfSHtaYHzTYGmoCXkUQcEFVOixvTCo8j+wkeqLjQlIX\ndQcor5o60h9/yWy8N1qNMJLvJ5G8BNqzQy+4/28CowKBgQDvnlA1IvNEOPmxGeqL\noYtCE/twKe7fRhlMZeW+yqjaVAO4Xsvz8NCIJLwoRQ6tUlX9Xed0u7Z5/8D8jbHM\nfqZGMG4PLJozeDNxh+Hpt3b7Mhj8Hpjs60ojU2jAnsEUIQzH+bvqg9CoPdv6bup2\nTyYMk+eRGV+c1YZeV1g3InIhTwKBgQDs0VtOgruHdZbaRDX2P/mWEhT6+oslY5uY\nSoPsgy9/iUincYmJVCH7aqasoFDV+M6cRnZv5QzSVPLT0Hk9L22NO56jiQ6jNx0U\nxHL1uh5HFPsyM/myfX+Ecf3H8ZIbYYZWaYL/vJKDzjMnoK+OGWuLV9zxQ+i65Dk3\nnA2r7Cs6AwKBgQDI3qMIWFsr9sNCdqJLGUofQ5cFaPGpVB9DDyywaz1vgPx5Y2aA\nAYEekAT3kSSDoUEam8y6691FmmOSk8nXztfegRzSNaayvPILG0kD3tusKkwNlizG\nd1v4DyUCTFM5Z5dKUIz6RDP3xZuR7cc5FJKl+psl5OplFA6HKZt25LZeOwKBgQCH\neUClii4jUMaKeGjyRSjPi+qKpRdCvVe+aCpN+8IJUIzKlS3b7NA/1oQgztlPfrUb\nO0f3vO13yXbcay9gLCicmdWnsfk4r4eoYLVvExjNCxikYI1gaWCwcNGANxahKUpD\nVrrE96hNVIF5Evg67xnRreLL9lBF0ddVk6VSi5ky5wKBgExCwcmimWR1h89MNqDB\nic8uJckwccTCddtqy79OLy73Xpj6uLxZoSMdIFI4umgETG/WfBp41bcIkC9QwJtf\nSTOJ5+FObxYcJ1ClJyDK4g/pFtVv4AgiYjPn922fyWhbW3B6BlS6tLNLIHeDgwfr\nyAAgOVcCpJ1t+gIda2GKmIQj\n-----END PRIVATE KEY-----\n",
+  "client_email": "mindetreeaccount@mindtree-323221.iam.gserviceaccount.com",
+  "client_id": "112169342581809229025",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mindetreeaccount%40mindtree-323221.iam.gserviceaccount.com"
+}
