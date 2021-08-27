@@ -47,7 +47,7 @@ def startMamT():
 
     ##################
     ### loading from result sample
-    ocrResult_final = loadResultSample('../1.data/resultSamplr_data11.txt')
+    ocrResult_final = loadResultSample('../1.data/resultSamplr_data12.txt')
     # print(ocrResult_final)
 
     # 0. OCR를 이용해서, 이미지로부터 텍스트를 추출한다( 원하는 결과만 가져온다)
@@ -184,10 +184,10 @@ def startMamT():
 
 
     # 3) 형태소와 태그 반환:pos()
-    print('==== kkma 형태소, 태그 추출 =====')
+    # print('==== kkma 형태소, 태그 추출 =====')
     global kkma_pos
     kkma_pos = kkma.pos(text_before_analysis)
-    print(kkma_pos)  # list type
+    # print(kkma_pos)  # list type
 
     # kkma_pos_count = len(kkma_pos)
     # print("형태소 + 태그:", kkma_pos_count) 
@@ -262,16 +262,16 @@ def kkmaPreprocess(text, tokenizer):
         kkma_pos_dic[tags] = hantxt 
 
     # 불용어로 추가할 태그 추가
-    tag_add_boollist = ['SF', 'JKO', 'ETD', 'EFN', 'VCP', 'VV', 'XSV', 'ETN', 'JX', 'VXV', 'EPT', 'ECS', 'EPH', 'ETD', 'ECE', ]
+    tag_add_boollist = ['SF', 'JKO', 'ETD', 'EFN', 'VCP', 'VV', 'XSV', 'ETN', 'JX', 'VXV', 'EPT', 'ECS', 'ETD', 'ECE', ]
     bool_list = []
     for bool_tags in tag_add_boollist:
         bool_list += kkma_pos_dic[bool_tags].split()
 
 
     # 불용어 정의
-    stopwords = ['ㅂ니다', '네요', '에', '아', '를','은', '과', '거든요', '에게', '있', '분', '아야', '아도', '던', '지만', '았', '한', 'ㄴ', 'ㄹ', '어요', '에서', '부터', '러', '는데', 'ㅂ시다', '어도', '것', '지', '라고요', '도', '고', '가', '으로', '죠', '아요', '다고'] + bool_list
-    print("=====불용어 정의 리스트======")
-    print(stopwords)
+    stopwords = ['ㅂ니다', '네요', '에', '아', '를','은', '과', '거든요', '에게', '있', '분', '아야', '아도', '던', '지만', '았', '한', 'ㄴ', 'ㄹ', '어요', '에서', '부터', '러', '는데', 'ㅂ시다', '어도', '것', '지', '라고요', '도', '고', '가', '으로', '죠', '아요', '다고','ㄴ다'] + bool_list
+    # print("=====불용어 정의 리스트======")
+    # print(stopwords)
 
     txt = re.sub('[^가-힣a-z]', ' ', text)
     token = tokenizer.morphs(txt) # 형태소 추출 토큰
@@ -304,8 +304,28 @@ if __name__ == "__main__":
     
 
 kkma_pre = kkmaPreprocess(text_before_analysis, tokenizer)
+print('==== kkma_pre ====== ')
 print(kkma_pre)
+# print('==== kkma_nouns ====== ')
+# print(kkma_nouns)
+# print("------kkma_pre.count------------")
+kkma_pre_list = []
+for e in kkma_pre:
+    if e not in kkma_pre_list:
+        kkma_pre_list.append(e)
+print("----kkma_pre_list---------")
+print(kkma_pre_list)
+print("------kkma_pre.count------------")
+for i in kkma_pre_list:
+    print(f"{i}",kkma_pre.count(i))
+
 kkma_pre_txt= " ".join(kkma_pre)
+# print('==== kkma_pre_txt ====== ')
+# print(kkma_pre_txt)
+
+# # kkma nouns로 워드 클라우드 생성
+# kkma_pre_txt= " ".join(kkma_nouns)
+
 
 print("===워드 클라우드 생성")
 wordcloud = WordCloud(font_path='font/NanumGothic.ttf', background_color='white').generate(kkma_pre_txt)
