@@ -12,11 +12,6 @@ from google.cloud import vision
 # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../구글키주소입력.json'
 
 
-
-
-
-
-
 def startMamT():
     # ############################################################
     # # 1. image data file loading

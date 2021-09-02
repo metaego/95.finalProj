@@ -132,7 +132,7 @@ def getWordFrequency(wordList):
 
     return wordFreqSet
 
-## 3-1.a 쥐요 단어 목록 뽑기
+## 3-1.a 주요 단어 목록 뽑기
 def getInterestWordsList(posTagger, targetStr):
     print(getTimeStr(), "POS Tagging is Started..")
     posResult = posTagger.pos(targetStr)
