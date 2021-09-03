@@ -30,7 +30,7 @@ data = {
 # sort_keys=True: key를 기준으로 정렬해서 직렬화
 # dictionary를 json으로 변환시(json.dump()) 한글 깨짐 현상 
 # strict=False: 제어문자(\r, \n, \t, \o)가 포함된 문자열 처리
-print(json.dumps(content, indent=4, sort_keys=True, ensure_ascii=False, strict=False))
+print(json.dumps(content, indent=4, sort_keys=True, ensure_ascii=False))
 
 response = requests.post(url, data=json.dumps(data), headers=headers)
 rescode = response.status_code
