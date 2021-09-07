@@ -14,7 +14,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-content = './1.data/resultSamplr_data12.txt'
+content = '../1.data/resultSamplr_data12.txt'
 with open(content, 'r', encoding="utf-8") as result_file:
     content = result_file.read()
     #     ocrResult_final = ocrResult_final + "\n" + content
@@ -32,7 +32,8 @@ data = {
 # strict=False: 제어문자(\r, \n, \t, \o)가 포함된 문자열 처리
 print(json.dumps(content, indent=4, sort_keys=True, ensure_ascii=False))
 
-response = requests.post(url, data=json.dumps(data), headers=headers)
+response = requests.post(url, data=json.dumps(data), headers=headers) # 반환값이 객체임
+response_json = response.json()  # json으로 바꿔주는 메소드
 rescode = response.status_code
 
 if(rescode == 200):
@@ -45,5 +46,4 @@ else:
 # 보기 편하게 content만 가져오기
 print()
 print("==== 감정분석 =====")
-# print(requests.args.get('document'))
-# print(requests.args.get['sentences']['content'], requests.args.get['sentences']['sentiment'], requests.args.get['sentences']['highlights'])
+print(response_json['document'])
