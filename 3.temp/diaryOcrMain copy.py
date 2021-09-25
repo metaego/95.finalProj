@@ -327,8 +327,8 @@ wordcloud = WordCloud(font_path='font/NanumGothic.ttf', background_color='white'
 plt.figure(figsize=(10,10)) #이미지 사이즈 지정
 plt.imshow(wordcloud, interpolation='lanczos') #이미지의 부드럽기 정도
 plt.axis('off') #x y 축 숫자 제거
-plt.show() 
-plt.savefig()
+# plt.show() 
+plt.savefig('../1.data/result/result.png')  # plt 파일로 저장
 # 워드 클라우드의 단점
 # 1) pos의 태그를 반영하여 카운트를 하지 않음
 #    예: '나'가 2번 존재. '나'는 I를 의미하는 게 아니라 짜증난다의 '나', 화가난다의 '나'이다 

@@ -19,8 +19,8 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './diaryocr-d3168619e3da.json'
 import sys
 import requests
 clovaAPI_url="https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze"
-clovaAPI_headers = {"X-NCP-APIGW-API-KEY-ID": "",
-                    "X-NCP-APIGW-API-KEY": "",
+clovaAPI_headers = {"X-NCP-APIGW-API-KEY-ID": "fmcyn3rk8o",
+                    "X-NCP-APIGW-API-KEY": "l1xoRWP5ZtEvlNFPeS6xoNUpG9ExOxgQI2YrHygV",
                     "Content-Type": "application/json"}
 
 
