@@ -6,7 +6,7 @@ def pccStudy():
 
     list_1 = np.random.rand(10000000)
     list_2 = np.random.rand(10000000)
-    list_3 =
+    # list_3 =
 
     u1 = [4, 4, 0]   # 1번, 2번, 3번 영화
     u4 = [0, 2, 3]   # 1번, 2번, 3번 영화
